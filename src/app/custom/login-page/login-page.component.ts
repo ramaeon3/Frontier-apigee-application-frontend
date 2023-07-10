@@ -16,7 +16,7 @@ export class LoginPageComponent implements OnInit {
       onFocus(field: string) {
         this.focusedField = field;
       }
-    
+
       onBlur(field: string) {
         this.focusedField = null;
       }
@@ -27,12 +27,12 @@ export class LoginPageComponent implements OnInit {
 
   loginForm: any = new FormGroup({
     username : new FormControl('', [Validators.required, Validators.email]),
-    password : new FormControl('', [Validators.required, Validators.minLength(5)])    
+    password : new FormControl('', [Validators.required, Validators.minLength(5)])
 });
 
 onSubmit(){
     if (this.loginForm.status === 'VALID'){
-        
+        console.log(this.loginForm.value);
     }else{
 
     }
