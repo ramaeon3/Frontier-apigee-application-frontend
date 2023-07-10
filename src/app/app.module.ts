@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -157,6 +157,8 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import { OnboardResourcesComponent } from './custom/onboard-resources/onboard-resources.component';
+import { LoginPageComponent } from './custom/login-page/login-page.component';
+import { SignupPageComponent } from './custom/signup-page/signup-page.component';
 
 FullCalendarModule.registerPlugins([
     dayGridPlugin,
@@ -168,6 +170,7 @@ FullCalendarModule.registerPlugins([
     imports: [
         BrowserModule,
         FormsModule,
+        ReactiveFormsModule,
         AppRoutingModule,
         HttpClientModule,
         BrowserAnimationsModule,
@@ -303,7 +306,9 @@ FullCalendarModule.registerPlugins([
         AppNotfoundComponent,
         AppErrorComponent,
         AppAccessdeniedComponent,
-        OnboardResourcesComponent
+        OnboardResourcesComponent,
+        LoginPageComponent,
+        SignupPageComponent
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},

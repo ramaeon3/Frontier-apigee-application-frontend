@@ -7,6 +7,8 @@ import {AppErrorComponent} from './pages/app.error.component';
 import {AppAccessdeniedComponent} from './pages/app.accessdenied.component';
 import {AppLoginComponent} from './pages/app.login.component';
 import { OnboardResourcesComponent } from './custom/onboard-resources/onboard-resources.component';
+import { LoginPageComponent } from './custom/login-page/login-page.component';
+import { SignupPageComponent } from './custom/signup-page/signup-page.component';
 
 @NgModule({
     imports: [
@@ -19,14 +21,15 @@ import { OnboardResourcesComponent } from './custom/onboard-resources/onboard-re
                     {path: 'admin/OnboardDestinations', component: EmptyDemoComponent},
                     {path: 'admin/CleanSources', component: EmptyDemoComponent},
                     {path: 'export', component: EmptyDemoComponent},
-                    {path: 'import', component: EmptyDemoComponent},
+                    {path: 'import', component: EmptyDemoComponent},                   
 
                 ]
             },
             {path: 'error', component: AppErrorComponent},
             {path: 'access', component: AppAccessdeniedComponent},
             {path: 'notfound', component: AppNotfoundComponent},
-            {path: 'login', component: AppLoginComponent},
+            {path: 'login', component: LoginPageComponent},
+            {path: 'sign-up', component: SignupPageComponent},
             {path: '**', redirectTo: '/notfound'},
         ], {scrollPositionRestoration: 'enabled'})
     ],

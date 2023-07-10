@@ -1,0 +1,52 @@
+<div class="content">
+    <div class="header">
+        <div></div>
+        <div class="header-image"></div>
+    </div>
+
+    <div class="island-landscape">
+        <div class="island-title">
+            <h1>Sign in to your apigee account</h1>
+        </div>
+        <div class="island-content">
+
+            <form id="ue-style-container" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="ue-input-container"
+                    [class.ue-input-container-focus]="isFocused('username') || loginForm.controls.username.value"
+                    [class.ue-input-container-placeholder]="!isFocused('username') && !loginForm.controls.username.value">
+                    <input class="form-control" name="username" type="text" formControlName="username"
+                        autocomplete="true" autofocus="autofocus" (focus)="onFocus('username')"
+                        (blur)="onBlur('username')">
+                    <span class="ue-placeholder">Email</span>
+                    <span class="ue-bottom-border"></span>
+                </div>
+
+                <div class="ue-input-container"
+                    [class.ue-input-container-focus]="isFocused('password') || loginForm.controls.password.value"
+                    [class.ue-input-container-placeholder]="!isFocused('password') && !loginForm.controls.password.value">
+                    <input class="form-control" name="password" type="password" formControlName="password"
+                        autocomplete="false" (focus)="onFocus('password')" (blur)="onBlur('password')">
+                    <span class="ue-placeholder">Password</span>
+                    <span class="ue-bottom-border"></span>
+                </div>
+
+                <button type="submit" class="island-button uppercase" 
+                [disabled]="!loginForm.valid" id="login-button">sign in
+                </button>
+
+                <div class="ue-link-section">
+                    <span>
+                        <a routerLink="/sign-up" title="Our newer platform">Create an account</a>
+                    </span>
+                    <br>
+                    <a href="#">Reset password</a>
+                </div>
+
+            </form>
+
+
+
+        </div>
+
+    </div>
+</div>

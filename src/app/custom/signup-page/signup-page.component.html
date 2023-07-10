@@ -1,0 +1,79 @@
+<div class="content">
+    <div class="header">
+        <div></div>
+        <div class="header-image"></div>
+    </div>
+
+    <div class="island-landscape">
+        <div class="island-title">
+            <h1>Create your new apigee account</h1>
+        </div>
+        <div class="island-content">
+
+            <form id="ue-style-container" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+                <div class="ue-input-container"
+                    [class.ue-input-container-focus]="isFocused('firstname') || signupForm.controls.firstname.value"
+                    [class.ue-input-container-placeholder]="!isFocused('firstname') && !signupForm.controls.firstname.value">
+                    <input class="form-control" name="first name" type="text" formControlName="firstname"
+                        autocomplete="true" autofocus="autofocus" (focus)="onFocus('firstname')"
+                        (blur)="onBlur('firstname')">
+                    <span class="ue-placeholder">First Name</span>
+                    <span class="ue-bottom-border"></span>
+                </div>
+                <div class="ue-input-container"
+                    [class.ue-input-container-focus]="isFocused('lastname') || signupForm.controls.lastname.value"
+                    [class.ue-input-container-placeholder]="!isFocused('lastname') && !signupForm.controls.lastname.value">
+                    <input class="form-control" name="lastname" type="text" formControlName="lastname"
+                        autocomplete="true" autofocus="autofocus" (focus)="onFocus('lastname')"
+                        (blur)="onBlur('lastname')">
+                    <span class="ue-placeholder">Last Name</span>
+                    <span class="ue-bottom-border"></span>
+                </div>
+                <div class="ue-input-container"
+                    [class.ue-input-container-focus]="isFocused('username') || signupForm.controls.username.value"
+                    [class.ue-input-container-placeholder]="!isFocused('username') && !signupForm.controls.username.value">
+                    <input class="form-control" name="username" type="text" formControlName="username"
+                        autocomplete="true" autofocus="autofocus" (focus)="onFocus('username')"
+                        (blur)="onBlur('username')">
+                    <span class="ue-placeholder">Email</span>
+                    <span class="ue-bottom-border"></span>
+                </div>
+
+                <div class="ue-input-container"
+                    [class.ue-input-container-focus]="isFocused('password') || signupForm.controls.password.value"
+                    [class.ue-input-container-placeholder]="!isFocused('password') && !signupForm.controls.password.value">
+                    <input class="form-control" name="password" type="password" formControlName="password"
+                        autocomplete="false" (focus)="onFocus('password')" (blur)="onBlur('password')">
+                    <span class="ue-placeholder">Password</span>
+                    <span class="ue-bottom-border"></span>
+                </div>
+
+                <div class="ue-input-container"
+                    [class.ue-input-container-focus]="isFocused('cnfpassword') || signupForm.controls.cnfpassword.value"
+                    [class.ue-input-container-placeholder]="!isFocused('cnfpassword') && !signupForm.controls.cnfpassword.value">
+                    <input class="form-control" name="cnfpassword" type="cnfpassword" formControlName="cnfpassword"
+                        autocomplete="false" (focus)="onFocus('cnfpassword')" (blur)="onBlur('cnfpassword')">
+                    <span class="ue-placeholder">Confirm Password</span>
+                    <span class="ue-bottom-border"></span>
+                </div>
+
+                <button type="submit" class="island-button uppercase" 
+                [disabled]="!signupForm.valid" id="login-button">sign up
+                </button>
+
+                <div class="ue-link-section">
+                    <span>
+                        <a routerLink="/login" title="Our newer platform">Already User? Login Here</a>
+                    </span>
+                    <br>
+                    <a href="#">Reset password</a>
+                </div>
+
+            </form>
+
+
+
+        </div>
+
+    </div>
+</div>
