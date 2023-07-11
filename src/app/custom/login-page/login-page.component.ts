@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+declare const btoa: any;
 
 @Component({
   selector: 'app-login-page',
@@ -20,7 +21,7 @@ export class LoginPageComponent implements OnInit {
       onBlur(field: string) {
         this.focusedField = null;
       }
-  constructor() { }
+      constructor(private renderer: Renderer2) { }
 
   ngOnInit(): void {
   }
@@ -33,13 +34,28 @@ export class LoginPageComponent implements OnInit {
 onSubmit(){
     if (this.loginForm.status === 'VALID'){
         console.log(this.loginForm.value);
+        this.authenticate();
     }else{
 
     }
 }
 
-get f() {
-    return this.loginForm.controls;
+    isEyeClosed: boolean = true;
+    defaultPass: string = 'password';
+    visIconClicked() {
+        this.isEyeClosed = !this.isEyeClosed;
+        if (this.isEyeClosed) {
+            this.renderer.setAttribute(document.getElementById('password-input'), 'type', 'password');
+        } else {
+            this.renderer.setAttribute(document.getElementById('password-input'), 'type', 'text');
+        }
+    }
+    
+authenticate(){
+  localStorage.setItem('username',this.loginForm.value?.username);
+  const username = this.loginForm.value?.username;
+  const password = this.loginForm.value?.password;
+  const token = btoa(username+password);  
+  localStorage.setItem('token',token);
 }
-
 }

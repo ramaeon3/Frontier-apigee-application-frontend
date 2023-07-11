@@ -27,10 +27,11 @@
                     [class.ue-input-container-focus]="isFocused('password') || loginForm.controls.password.value"
                     [class.ue-input-container-placeholder]="!isFocused('password') && !loginForm.controls.password.value"
                     [class.ue-input-blurred]="loginForm.controls.password.touched && loginForm.controls.password.errors && !loginForm.controls.password.valid">
-                    <input class="form-control" name="password" type="password" formControlName="password"
+                    <input id="password-input" class="form-control" name="password" [type]="defaultPass" formControlName="password"
                         autocomplete="false" (focus)="onFocus('password')" (blur)="onBlur('password')">
                     <span class="ue-placeholder">Password</span>
                     <span class="ue-bottom-border"></span>
+                    <i id="ue-password-visibility-icon" [class.ue-eye-closed]="isEyeClosed" (click)="visIconClicked()"></i>
                 </div>
 
                 <button type="submit" class="island-button uppercase"
