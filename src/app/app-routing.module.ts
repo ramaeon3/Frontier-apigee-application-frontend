@@ -2,10 +2,6 @@ import {RouterModule} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {EmptyDemoComponent} from './demo/view/emptydemo.component';
 import {AppMainComponent} from './app.main.component';
-import {AppNotfoundComponent} from './pages/app.notfound.component';
-import {AppErrorComponent} from './pages/app.error.component';
-import {AppAccessdeniedComponent} from './pages/app.accessdenied.component';
-import {AppLoginComponent} from './pages/app.login.component';
 import { OnboardResourcesComponent } from './custom/onboard-resources/onboard-resources.component';
 import { LoginPageComponent } from './custom/login-page/login-page.component';
 import { SignupPageComponent } from './custom/signup-page/signup-page.component';
@@ -25,9 +21,7 @@ import { SignupPageComponent } from './custom/signup-page/signup-page.component'
 
                 ]
             },
-            {path: 'error', component: AppErrorComponent},
-            {path: 'access', component: AppAccessdeniedComponent},
-            {path: 'notfound', component: AppNotfoundComponent},
+            
             {path: 'login', component: LoginPageComponent},
             {path: 'sign-up', component: SignupPageComponent},
             {path: '**', redirectTo: '/notfound'},
