@@ -90,7 +90,7 @@ export class PersonalInfoComponent implements OnInit {
     }
     continueBtn(event: any){        
         if (this.signupFormpage1.status === 'VALID') {
-            console.log(this.signupFormpage1.value);
+            // console.log(this.signupFormpage1.value);
             const formData = this.signupFormpage1.value;
             this.signupService.updateFormData(formData);
             this.router.navigate(['/signup/source-details']);

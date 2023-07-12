@@ -29,11 +29,20 @@ export class SourceDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.signupService.formData$.subscribe(formData => {
       if (formData) {
-        this.signupFormpage2.patchValue(formData);
+        this.personalDetails.patchValue(formData);
+        console.log(this.personalDetails.value);
       }
     });
   }
   showFields: boolean = false;
+  personalDetails: any = new FormGroup({
+    firstname: new FormControl(''),
+    lastname: new FormControl(''),
+    username: new FormControl(''),
+    password: new FormControl(''),
+    cnfpassword: new FormControl('')        
+});
+
   signupFormpage2: any = new FormGroup({      
       sourceorg: new FormControl('', [Validators.required, Validators.minLength(3)]),
       sourceenv: new FormControl('', [Validators.required, Validators.minLength(3)]),
@@ -78,7 +87,7 @@ export class SourceDetailsComponent implements OnInit {
     if (this.signupFormpage2.status === 'VALID') {
         console.log(this.signupFormpage2.value);
         const formData = this.signupFormpage2.value;
-        this.signupService.updateFormData(formData);
+        this.signupService.updateFormDataPage2(formData);
         this.router.navigate(['/signup/target-details']);
     } else {
     }

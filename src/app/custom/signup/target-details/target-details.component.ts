@@ -28,10 +28,35 @@ export class TargetDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.signupService.formData$.subscribe(formData => {
       if (formData) {
-        this.signupFormpage3.patchValue(formData);
+        this.personalDetails.patchValue(formData);
+        console.log(this.personalDetails.value);        
+      }
+    });
+    this.signupService.formDataPage2$.subscribe(formData => {
+      if (formData) {
+        this.sourceDetails.patchValue(formData);
+        console.log(this.sourceDetails.value);        
       }
     });
   }
+  personalDetails: any = new FormGroup({
+    firstname: new FormControl(''),
+    lastname: new FormControl(''),
+    username: new FormControl(''),
+    password: new FormControl(''),
+    cnfpassword: new FormControl('')        
+});
+sourceDetails: any = new FormGroup({
+      sourceorg: new FormControl(''),
+      sourceenv: new FormControl(''),
+      sourceprotocol: new FormControl(''),
+      sourcehostname: new FormControl(''),
+      sourceport: new FormControl(''),
+      sourcessl: new FormControl(''),
+      sourcecrt: new FormControl(''),
+      sourcekey: new FormControl(''),
+      sourcepassword: new FormControl('')
+});
   showFields: boolean = false;
   signupFormpage3: any = new FormGroup({
       targetorg: new FormControl('', [Validators.required, Validators.minLength(3)]),
