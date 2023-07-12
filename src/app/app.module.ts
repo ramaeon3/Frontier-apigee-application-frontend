@@ -31,6 +31,9 @@ import { OnboardResourcesComponent } from './custom/onboard-resources/onboard-re
 import { LoginPageComponent } from './custom/login-page/login-page.component';
 import { SignupPageComponent } from './custom/signup-page/signup-page.component';
 import { PrimengModule } from './primeng/primeng.module';
+import { PersonalInfoComponent } from './custom/signup/personal-info/personal-info.component';
+import { SourceDetailsComponent } from './custom/signup/source-details/source-details.component';
+import { TargetDetailsComponent } from './custom/signup/target-details/target-details.component';
 
 FullCalendarModule.registerPlugins([
     dayGridPlugin,
@@ -65,7 +68,10 @@ FullCalendarModule.registerPlugins([
         AppBreadcrumbComponent,
         OnboardResourcesComponent,
         LoginPageComponent,
-        SignupPageComponent
+        SignupPageComponent,
+        PersonalInfoComponent,
+        SourceDetailsComponent,
+        TargetDetailsComponent
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},

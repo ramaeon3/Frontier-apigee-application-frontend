@@ -1,0 +1,117 @@
+<div class="content">
+    <div class="header">
+        <div></div>
+        <div class="header-image"></div>
+    </div>
+
+    <div class="island-landscape">
+        <div class="island-title">
+            <h1>Create your new apigee account</h1>
+        </div>     
+        <form id="ue-style-container" [formGroup]="signupFormpage1">
+        
+            <div class="island-content">
+                <div class="island-title">
+                    <h3>Personal Information</h3>
+                </div>
+            
+                    <div class="ue-input-container ue-input-err-on-touched  ue-input-invalid"
+                        [class.ue-input-container-focus]="isFocused('firstname') || signupFormpage1.controls.firstname.value"
+                        [class.ue-input-container-placeholder]="!isFocused('firstname') && !signupFormpage1.controls.firstname.value"
+                        [class.ue-input-blurred]="signupFormpage1.controls.firstname.touched && signupFormpage1.controls.firstname.errors && !signupFormpage1.controls.firstname.valid">
+                        <input class="form-control" name="first name" type="text" formControlName="firstname"
+                            autocomplete="true" autofocus="autofocus" (focus)="onFocus('firstname')"
+                            (blur)="onBlur('firstname')" tabindex="1">
+                        <span class="ue-placeholder">First Name</span>
+                        <span class="ue-bottom-border"></span>
+                        <div class="field-error">Letters A-Z, digits 0-9, space, hyphen - and apostrophe ' only
+                        </div>
+                    </div>
+                    <div class="ue-input-container ue-input-err-on-touched  ue-input-invalid"
+                        [class.ue-input-container-focus]="isFocused('lastname') || signupFormpage1.controls.lastname.value"
+                        [class.ue-input-container-placeholder]="!isFocused('lastname') && !signupFormpage1.controls.lastname.value"
+                        [class.ue-input-blurred]="signupFormpage1.controls.lastname.touched && signupFormpage1.controls.lastname.errors && !signupFormpage1.controls.lastname.valid">
+                        <input class="form-control" name="lastname" type="text" formControlName="lastname"
+                            autocomplete="true" autofocus="autofocus" (focus)="onFocus('lastname')"
+                            (blur)="onBlur('lastname')" tabindex="1">
+                        <span class="ue-placeholder">Last Name</span>
+                        <span class="ue-bottom-border"></span>
+                        <div class="field-error">Letters A-Z, digits 0-9, space, hyphen - and apostrophe ' only
+                        </div>
+                    </div>
+                    <div class="ue-input-container ue-input-err-on-touched  ue-input-invalid"
+                        [class.ue-input-container-focus]="isFocused('username') || signupFormpage1.controls.username.value"
+                        [class.ue-input-container-placeholder]="!isFocused('username') && !signupFormpage1.controls.username.value"
+                        [class.ue-input-blurred]="signupFormpage1.controls.username.touched && signupFormpage1.controls.username.errors && !signupFormpage1.controls.username.valid">
+                        <input class="form-control" name="username" type="text" formControlName="username"
+                            autocomplete="true" autofocus="autofocus" (focus)="onFocus('username')"
+                            (blur)="onBlur('username')" tabindex="1">
+                        <span class="ue-placeholder">Email</span>
+                        <span class="ue-bottom-border"></span>
+                    </div>
+    
+                    <div class="ue-input-container ue-input-err-on-touched  ue-input-invalid"
+                        [class.ue-input-container-focus]="isFocused('password') || signupFormpage1.controls.password.value"
+                        [class.ue-input-container-placeholder]="!isFocused('password') && !signupFormpage1.controls.password.value"
+                        [class.ue-input-blurred]="signupFormpage1.controls.password.touched && signupFormpage1.controls.password.errors && !signupFormpage1.controls.password.valid">
+                        <input id="password-input" class="form-control" name="password" [type]="defaultPass" formControlName="password"
+                            autocomplete="false" (focus)="onFocus('password')" (blur)="onBlur('password')" tabindex="1">
+                        <span class="ue-placeholder">Password</span>
+                        <span class="ue-bottom-border"></span>
+                        <div class="ue-validations-popover-container">
+                            <div class="ue-validations-popover">
+                              <div>
+                                <i name="length" [class]="'pi pi-check ' + (signupFormpage1.controls.password.value.length >= 8 ? 'green' : '')"></i>
+                                <span>At least 8 characters</span>
+                              </div>
+                              <div>
+                                <i name="uppercase" [class]="'pi pi-check ' + (hasUppercaseLetter() ? 'green' : '')"></i>
+                                <span>An uppercase letter (A-Z)</span>
+                              </div>
+                              <div>
+                                <i name="lowercase" [class]="'pi pi-check ' + (hasLowercaseLetter() ? 'green' : '')"></i>
+                                <span>A lowercase letter (a-z)</span>
+                              </div>
+                              <div>
+                                <i name="number" [class]="'pi pi-check ' + (hasNumber() ? 'green' : '')"></i>
+                                <span>A number</span>
+                              </div>
+                              <div>
+                                <i name="specialChar" [class]="'pi pi-check ' + (hasSpecialCharacter() ? 'green' : '')"></i>
+                                <span>A special character</span>
+                              </div>
+                            </div>
+                            <div class="ue-validations-popover-pointer-dark"></div>
+                            <div class="ue-validations-popover-pointer-light"></div>
+                          </div>
+                          <i id="ue-password-visibility-icon" [class.ue-eye-closed]="isEyeClosed" (click)="visIconClicked()"></i>
+                    </div>
+    
+                    <div class="ue-input-container ue-input-err-on-touched  ue-input-invalid"
+                        [class.ue-input-container-focus]="isFocused('cnfpassword') || signupFormpage1.controls.cnfpassword.value"
+                        [class.ue-input-container-placeholder]="!isFocused('cnfpassword') && !signupFormpage1.controls.cnfpassword.value"
+                        [class.ue-input-blurred]="signupFormpage1.controls.cnfpassword.touched && signupFormpage1.controls.cnfpassword.errors && !signupFormpage1.controls.cnfpassword.valid">
+                        <input id="password-input-cnf" class="form-control" name="cnfpassword" [type]="cnfPasswordthing" formControlName="cnfpassword"
+                            autocomplete="false" (focus)="onFocus('cnfpassword')" (blur)="onBlur('cnfpassword')">
+                        <span class="ue-placeholder">Confirm Password</span>
+                        <span class="ue-bottom-border"></span>
+                        <i id="ue-password-visibility-icon" [class.ue-eye-closed]="isEyeClosedCnf" (click)="visIconClickedCnf()"></i>
+                    </div>
+                    <button pButton pRipple label="Continue" [disabled]="!signupFormpage1.valid" (click)="continueBtn($event)" ></button>
+    
+                    <div class="ue-link-section">
+                        <span>
+                            Already User? <a routerLink="/login" title="Our newer platform">Sign in</a>.
+                        </span>
+                        <br>
+                        <a href="#">Reset password</a>
+                    </div>    
+    
+            </div>
+
+
+        
+        
+    </form>
+    </div>
+</div>

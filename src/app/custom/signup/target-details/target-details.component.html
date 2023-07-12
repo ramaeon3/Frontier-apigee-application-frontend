@@ -1,0 +1,112 @@
+<div class="content">
+    <div class="header">
+        <div></div>
+        <div class="header-image"></div>
+    </div>
+
+    <div class="island-landscape">
+        <div class="island-title">
+            <h3>Create your new apigee account</h3>
+        </div>     
+        <form id="ue-style-container" [formGroup]="signupFormpage3">
+        
+            <div class="island-content">
+                <div class="island-title">
+                    <h3>Target Details</h3>
+                </div>
+                <div class="ue-input-container ue-input-err-on-touched  ue-input-invalid"
+                [class.ue-input-container-focus]="isFocused('targetorg') || signupFormpage3.controls.targetorg.value"
+                [class.ue-input-container-placeholder]="!isFocused('targetorg') && !signupFormpage3.controls.targetorg.value"
+                [class.ue-input-blurred]="signupFormpage3.controls.targetorg.touched && signupFormpage3.controls.targetorg.errors && !signupFormpage3.controls.targetorg.valid">
+                <input class="form-control" name="Target Organization" type="text" formControlName="targetorg"
+                     (focus)="onFocus('targetorg')"autofocus="true" (blur)="onBlur('targetorg')" tabindex="1">
+                <span class="ue-placeholder">Organization</span>
+                <span class="ue-bottom-border"></span>
+                <div class="field-error">Letters A-Z, digits 0-9, space, hyphen - and apostrophe ' only
+                </div>
+            </div>
+            <div class="ue-input-container ue-input-err-on-touched  ue-input-invalid"
+                [class.ue-input-container-focus]="isFocused('targetenv') || signupFormpage3.controls.targetenv.value"
+                [class.ue-input-container-placeholder]="!isFocused('targetenv') && !signupFormpage3.controls.targetenv.value"
+                [class.ue-input-blurred]="signupFormpage3.controls.targetenv.touched && signupFormpage3.controls.targetenv.errors && !signupFormpage3.controls.targetenv.valid">
+                <input class="form-control" name="Target Environment" type="text" formControlName="targetenv"
+                    (focus)="onFocus('targetenv')"(blur)="onBlur('targetenv')" tabindex="1">
+                <span class="ue-placeholder">Environment</span>
+                <span class="ue-bottom-border"></span>
+                <div class="field-error">Letters A-Z, digits 0-9, space, hyphen - and apostrophe ' only
+                </div>
+            </div>
+            <div class="ue-input-container  ue-input-err-on-touched  ue-input-invalid"
+            [class.ue-input-container-focus]="isFocused('targetprotocol') || signupFormpage3.controls.targetprotocol.value"
+                [class.ue-input-container-placeholder]="!isFocused('targetprotocol') && !signupFormpage3.controls.targetprotocol.value"
+                [class.ue-input-blurred]="signupFormpage3.controls.targetprotocol.touched && signupFormpage3.controls.targetprotocol.errors && !signupFormpage3.controls.targetprotocol.valid">
+                <select name="Target Protocol" class="form-control" tabIndex="1" formControlName="targetprotocol">
+                  <option hidden="true"></option>
+                  <option value="http">http</option>
+                  <option value="https">https</option>                          
+                </select>
+                <span class="ue-placeholder">Select Protocol</span>
+                <span class="ue-bottom-border"></span>
+              </div>
+              <div class="ue-input-container ue-input-err-on-touched  ue-input-invalid"
+              [class.ue-input-container-focus]="isFocused('targethostname') || signupFormpage3.controls.targethostname.value"
+              [class.ue-input-container-placeholder]="!isFocused('targethostname') && !signupFormpage3.controls.targethostname.value"
+              [class.ue-input-blurred]="signupFormpage3.controls.targethostname.touched && signupFormpage3.controls.targethostname.errors && !signupFormpage3.controls.targethostname.valid">
+              <input class="form-control" name="Target Host Name" type="text" formControlName="targethostname"
+                  (focus)="onFocus('targethostname')"(blur)="onBlur('targethostname')" tabindex="1">
+              <span class="ue-placeholder">Host Name</span>
+              <span class="ue-bottom-border"></span>
+              <div class="field-error">google.com
+              </div>
+          </div>
+          <div class="ue-input-container ue-input-err-on-touched  ue-input-invalid"
+              [class.ue-input-container-focus]="isFocused('targetport') || signupFormpage3.controls.targetport.value"
+              [class.ue-input-container-placeholder]="!isFocused('targetport') && !signupFormpage3.controls.targetport.value"
+              [class.ue-input-blurred]="signupFormpage3.controls.targetport.touched && signupFormpage3.controls.targetport.errors && !signupFormpage3.controls.targetport.valid">
+              <input class="form-control" name="Target Port" type="text" formControlName="targetport"
+                  (focus)="onFocus('targetport')"(blur)="onBlur('targetport')" tabindex="1">
+              <span class="ue-placeholder">Port</span>
+              <span class="ue-bottom-border"></span>
+              <div class="field-error">Digits 0-9 Only
+              </div>
+          </div>
+
+          <div style="padding: 10px;">
+            <label id="ue-checkbox-label" for="ue-checkbox">SSL </label>
+            <input name="sourcessl" type="checkbox" id="ue-checkbox"tabindex="1"formControlName="targetssl" (change)="showFields = !showFields" />
+          </div>
+          
+          <div *ngIf="showFields">
+            <div  style="padding: 10px;">
+            <label style="padding-right:10px ;" for="targetcrt">Select CRT/PFX File</label>
+            <input name="Source Certificate" type="file" formControlName="targetcrt" id="targetcrt" tabindex="1">                       
+            </div>
+
+            
+            <div  style="padding: 10px;">
+                <label style="padding-right:36px;" for="targetkey">Select KEY File</label>
+            <input name="Source KEY file" type="file" formControlName="targetkey" id="targetkey" tabindex="1">                    
+            </div>
+            <div class="ue-input-container ue-input-err-on-touched  ue-input-invalid"
+                [class.ue-input-container-focus]="isFocused('targetpassword') || signupFormpage3.controls.targetpassword.value"
+                [class.ue-input-container-placeholder]="!isFocused('targetpassword') && !signupFormpage3.controls.targetpassword.value"
+                [class.ue-input-blurred]="signupFormpage3.controls.targetpassword.touched && signupFormpage3.controls.targetpassword.errors && !signupFormpage3.controls.targetpassword.valid">
+                <input id="password-input-target-pass" class="form-control" name="targetpassword" [type]="targetpasswordthing" formControlName="targetpassword"
+                    autocomplete="false" (focus)="onFocus('targetpassword')" (blur)="onBlur('targetpassword')">
+                <span class="ue-placeholder">Passphrase</span>
+                <span class="ue-bottom-border"></span>
+                <i id="ue-password-visibility-icon" [class.ue-eye-closed]="isEyeClosedTargetPassword" (click)="visIconClickedTargetPassword()"></i>
+            </div>
+          </div>                  
+          <button pButton pRipple label="Test Target Connection" [disabled]="!signupFormpage3.valid"></button>          
+          <button pButton pRipple label="Create Account" [disabled]="!signupFormpage3.valid" (click)="createAccount()"></button>
+    
+                    
+            </div>
+
+
+        
+        
+    </form>
+    </div>
+</div>

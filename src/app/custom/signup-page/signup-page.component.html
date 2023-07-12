@@ -6,111 +6,299 @@
 
     <div class="island-landscape">
         <div class="island-title">
-            <h1>Create your new apigee account</h1>
-        </div>
-        <div class="island-content">
-
-            <form id="ue-style-container" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-                <div class="ue-input-container ue-input-err-on-touched first ue-input-invalid"
-                    [class.ue-input-container-focus]="isFocused('firstname') || signupForm.controls.firstname.value"
-                    [class.ue-input-container-placeholder]="!isFocused('firstname') && !signupForm.controls.firstname.value"
-                    [class.ue-input-blurred]="signupForm.controls.firstname.touched && signupForm.controls.firstname.errors && !signupForm.controls.firstname.valid">
-                    <input class="form-control" name="first name" type="text" formControlName="firstname"
-                        autocomplete="true" autofocus="autofocus" (focus)="onFocus('firstname')"
-                        (blur)="onBlur('firstname')" tabindex="1">
-                    <span class="ue-placeholder">First Name</span>
-                    <span class="ue-bottom-border"></span>
-                    <div class="field-error">Letters A-Z, digits 0-9, space, hyphen - and apostrophe ' only
-                    </div>
+            <h3>Create your new apigee account</h3>
+        </div>     
+        <form id="ue-style-container" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <div style="display: flex;
+        justify-content: space-around; flex-wrap: wrap;">
+            <div class="island-content" style="flex: 1;margin-left: 5px;margin-right: 5px;">
+                <div class="island-title">
+                    <h3>Personal Information</h3>
                 </div>
-                <div class="ue-input-container ue-input-err-on-touched first ue-input-invalid"
-                    [class.ue-input-container-focus]="isFocused('lastname') || signupForm.controls.lastname.value"
-                    [class.ue-input-container-placeholder]="!isFocused('lastname') && !signupForm.controls.lastname.value"
-                    [class.ue-input-blurred]="signupForm.controls.lastname.touched && signupForm.controls.lastname.errors && !signupForm.controls.lastname.valid">
-                    <input class="form-control" name="lastname" type="text" formControlName="lastname"
-                        autocomplete="true" autofocus="autofocus" (focus)="onFocus('lastname')"
-                        (blur)="onBlur('lastname')" tabindex="1">
-                    <span class="ue-placeholder">Last Name</span>
-                    <span class="ue-bottom-border"></span>
-                    <div class="field-error">Letters A-Z, digits 0-9, space, hyphen - and apostrophe ' only
-                    </div>
-                </div>
-                <div class="ue-input-container ue-input-err-on-touched first ue-input-invalid"
-                    [class.ue-input-container-focus]="isFocused('username') || signupForm.controls.username.value"
-                    [class.ue-input-container-placeholder]="!isFocused('username') && !signupForm.controls.username.value"
-                    [class.ue-input-blurred]="signupForm.controls.username.touched && signupForm.controls.username.errors && !signupForm.controls.username.valid">
-                    <input class="form-control" name="username" type="text" formControlName="username"
-                        autocomplete="true" autofocus="autofocus" (focus)="onFocus('username')"
-                        (blur)="onBlur('username')" tabindex="1">
-                    <span class="ue-placeholder">Email</span>
-                    <span class="ue-bottom-border"></span>
-                </div>
-
-                <div class="ue-input-container ue-input-err-on-touched first ue-input-invalid"
-                    [class.ue-input-container-focus]="isFocused('password') || signupForm.controls.password.value"
-                    [class.ue-input-container-placeholder]="!isFocused('password') && !signupForm.controls.password.value"
-                    [class.ue-input-blurred]="signupForm.controls.password.touched && signupForm.controls.password.errors && !signupForm.controls.password.valid">
-                    <input id="password-input" class="form-control" name="password" [type]="defaultPass" formControlName="password"
-                        autocomplete="false" (focus)="onFocus('password')" (blur)="onBlur('password')" tabindex="1">
-                    <span class="ue-placeholder">Password</span>
-                    <span class="ue-bottom-border"></span>
-                    <div class="ue-validations-popover-container">
-                        <div class="ue-validations-popover">
-                          <div>
-                            <i name="length" [class]="'pi pi-check ' + (signupForm.controls.password.value.length >= 8 ? 'green' : '')"></i>
-                            <span>At least 8 characters</span>
-                          </div>
-                          <div>
-                            <i name="uppercase" [class]="'pi pi-check ' + (hasUppercaseLetter() ? 'green' : '')"></i>
-                            <span>An uppercase letter (A-Z)</span>
-                          </div>
-                          <div>
-                            <i name="lowercase" [class]="'pi pi-check ' + (hasLowercaseLetter() ? 'green' : '')"></i>
-                            <span>A lowercase letter (a-z)</span>
-                          </div>
-                          <div>
-                            <i name="number" [class]="'pi pi-check ' + (hasNumber() ? 'green' : '')"></i>
-                            <span>A number</span>
-                          </div>
-                          <div>
-                            <i name="specialChar" [class]="'pi pi-check ' + (hasSpecialCharacter() ? 'green' : '')"></i>
-                            <span>A special character</span>
-                          </div>
+            
+                    <div class="ue-input-container ue-input-err-on-touched  ue-input-invalid"
+                        [class.ue-input-container-focus]="isFocused('firstname') || signupForm.controls.firstname.value"
+                        [class.ue-input-container-placeholder]="!isFocused('firstname') && !signupForm.controls.firstname.value"
+                        [class.ue-input-blurred]="signupForm.controls.firstname.touched && signupForm.controls.firstname.errors && !signupForm.controls.firstname.valid">
+                        <input class="form-control" name="first name" type="text" formControlName="firstname"
+                            autocomplete="true" autofocus="autofocus" (focus)="onFocus('firstname')"
+                            (blur)="onBlur('firstname')" tabindex="1">
+                        <span class="ue-placeholder">First Name</span>
+                        <span class="ue-bottom-border"></span>
+                        <div class="field-error">Letters A-Z, digits 0-9, space, hyphen - and apostrophe ' only
                         </div>
-                        <div class="ue-validations-popover-pointer-dark"></div>
-                        <div class="ue-validations-popover-pointer-light"></div>
+                    </div>
+                    <div class="ue-input-container ue-input-err-on-touched  ue-input-invalid"
+                        [class.ue-input-container-focus]="isFocused('lastname') || signupForm.controls.lastname.value"
+                        [class.ue-input-container-placeholder]="!isFocused('lastname') && !signupForm.controls.lastname.value"
+                        [class.ue-input-blurred]="signupForm.controls.lastname.touched && signupForm.controls.lastname.errors && !signupForm.controls.lastname.valid">
+                        <input class="form-control" name="lastname" type="text" formControlName="lastname"
+                            autocomplete="true" autofocus="autofocus" (focus)="onFocus('lastname')"
+                            (blur)="onBlur('lastname')" tabindex="1">
+                        <span class="ue-placeholder">Last Name</span>
+                        <span class="ue-bottom-border"></span>
+                        <div class="field-error">Letters A-Z, digits 0-9, space, hyphen - and apostrophe ' only
+                        </div>
+                    </div>
+                    <div class="ue-input-container ue-input-err-on-touched  ue-input-invalid"
+                        [class.ue-input-container-focus]="isFocused('username') || signupForm.controls.username.value"
+                        [class.ue-input-container-placeholder]="!isFocused('username') && !signupForm.controls.username.value"
+                        [class.ue-input-blurred]="signupForm.controls.username.touched && signupForm.controls.username.errors && !signupForm.controls.username.valid">
+                        <input class="form-control" name="username" type="text" formControlName="username"
+                            autocomplete="true" autofocus="autofocus" (focus)="onFocus('username')"
+                            (blur)="onBlur('username')" tabindex="1">
+                        <span class="ue-placeholder">Email</span>
+                        <span class="ue-bottom-border"></span>
+                    </div>
+    
+                    <div class="ue-input-container ue-input-err-on-touched  ue-input-invalid"
+                        [class.ue-input-container-focus]="isFocused('password') || signupForm.controls.password.value"
+                        [class.ue-input-container-placeholder]="!isFocused('password') && !signupForm.controls.password.value"
+                        [class.ue-input-blurred]="signupForm.controls.password.touched && signupForm.controls.password.errors && !signupForm.controls.password.valid">
+                        <input id="password-input" class="form-control" name="password" [type]="defaultPass" formControlName="password"
+                            autocomplete="false" (focus)="onFocus('password')" (blur)="onBlur('password')" tabindex="1">
+                        <span class="ue-placeholder">Password</span>
+                        <span class="ue-bottom-border"></span>
+                        <div class="ue-validations-popover-container">
+                            <div class="ue-validations-popover">
+                              <div>
+                                <i name="length" [class]="'pi pi-check ' + (signupForm.controls.password.value.length >= 8 ? 'green' : '')"></i>
+                                <span>At least 8 characters</span>
+                              </div>
+                              <div>
+                                <i name="uppercase" [class]="'pi pi-check ' + (hasUppercaseLetter() ? 'green' : '')"></i>
+                                <span>An uppercase letter (A-Z)</span>
+                              </div>
+                              <div>
+                                <i name="lowercase" [class]="'pi pi-check ' + (hasLowercaseLetter() ? 'green' : '')"></i>
+                                <span>A lowercase letter (a-z)</span>
+                              </div>
+                              <div>
+                                <i name="number" [class]="'pi pi-check ' + (hasNumber() ? 'green' : '')"></i>
+                                <span>A number</span>
+                              </div>
+                              <div>
+                                <i name="specialChar" [class]="'pi pi-check ' + (hasSpecialCharacter() ? 'green' : '')"></i>
+                                <span>A special character</span>
+                              </div>
+                            </div>
+                            <div class="ue-validations-popover-pointer-dark"></div>
+                            <div class="ue-validations-popover-pointer-light"></div>
+                          </div>
+                          <i id="ue-password-visibility-icon" [class.ue-eye-closed]="isEyeClosed" (click)="visIconClicked()"></i>
+                    </div>
+    
+                    <div class="ue-input-container ue-input-err-on-touched  ue-input-invalid"
+                        [class.ue-input-container-focus]="isFocused('cnfpassword') || signupForm.controls.cnfpassword.value"
+                        [class.ue-input-container-placeholder]="!isFocused('cnfpassword') && !signupForm.controls.cnfpassword.value"
+                        [class.ue-input-blurred]="signupForm.controls.cnfpassword.touched && signupForm.controls.cnfpassword.errors && !signupForm.controls.cnfpassword.valid">
+                        <input id="password-input-cnf" class="form-control" name="cnfpassword" [type]="cnfPasswordthing" formControlName="cnfpassword"
+                            autocomplete="false" (focus)="onFocus('cnfpassword')" (blur)="onBlur('cnfpassword')">
+                        <span class="ue-placeholder">Confirm Password</span>
+                        <span class="ue-bottom-border"></span>
+                        <i id="ue-password-visibility-icon" [class.ue-eye-closed]="isEyeClosedCnf" (click)="visIconClickedCnf()"></i>
+                    </div>
+    
+            </div>
+
+            <div class="island-content" style="flex: 1;margin-left: 10px;margin-right: 10px;">
+                <div class="island-title">
+                    <h3>Source Details</h3>
+                </div>
+                <div class="ue-input-container ue-input-err-on-touched  ue-input-invalid"
+                        [class.ue-input-container-focus]="isFocused('sourceorg') || signupForm.controls.sourceorg.value"
+                        [class.ue-input-container-placeholder]="!isFocused('sourceorg') && !signupForm.controls.sourceorg.value"
+                        [class.ue-input-blurred]="signupForm.controls.sourceorg.touched && signupForm.controls.sourceorg.errors && !signupForm.controls.sourceorg.valid">
+                        <input class="form-control" name="first name" type="text" formControlName="sourceorg"
+                             (focus)="onFocus('sourceorg')"
+                            (blur)="onBlur('sourceorg')" tabindex="1">
+                        <span class="ue-placeholder">Organization</span>
+                        <span class="ue-bottom-border"></span>
+                        <div class="field-error">Letters A-Z, digits 0-9, space, hyphen - and apostrophe ' only
+                        </div>
+                    </div>
+                    <div class="ue-input-container ue-input-err-on-touched  ue-input-invalid"
+                        [class.ue-input-container-focus]="isFocused('sourceenv') || signupForm.controls.sourceenv.value"
+                        [class.ue-input-container-placeholder]="!isFocused('sourceenv') && !signupForm.controls.sourceenv.value"
+                        [class.ue-input-blurred]="signupForm.controls.sourceenv.touched && signupForm.controls.sourceenv.errors && !signupForm.controls.sourceenv.valid">
+                        <input class="form-control" name="first name" type="text" formControlName="sourceenv"
+                            (focus)="onFocus('sourceenv')"(blur)="onBlur('sourceenv')" tabindex="1">
+                        <span class="ue-placeholder">Environment</span>
+                        <span class="ue-bottom-border"></span>
+                        <div class="field-error">Letters A-Z, digits 0-9, space, hyphen - and apostrophe ' only
+                        </div>
+                    </div>
+                    <div class="ue-input-container  ue-input-err-on-touched  ue-input-invalid"
+                    [class.ue-input-container-focus]="isFocused('targetprotocol') || signupForm.controls.sourceprotocol.value"
+                        [class.ue-input-container-placeholder]="!isFocused('sourceprotocol') && !signupForm.controls.sourceprotocol.value"
+                        [class.ue-input-blurred]="signupForm.controls.sourceprotocol.touched && signupForm.controls.sourceprotocol.errors && !signupForm.controls.sourceprotocol.valid">
+                        <select name="sourceprotocol" class="form-control" tabIndex="1" formControlName="sourceprotocol">
+                          <option hidden="true"></option>
+                          <option value="1">http</option>
+                          <option value="2-9">https</option>                          
+                        </select>
+                        <span class="ue-placeholder">Select Protocol</span>
+                        <span class="ue-bottom-border"></span>
                       </div>
-                      <i id="ue-password-visibility-icon" [class.ue-eye-closed]="isEyeClosed" (click)="visIconClicked()"></i>
+                      <div class="ue-input-container ue-input-err-on-touched  ue-input-invalid"
+                      [class.ue-input-container-focus]="isFocused('sourcehostname') || signupForm.controls.sourcehostname.value"
+                      [class.ue-input-container-placeholder]="!isFocused('sourcehostname') && !signupForm.controls.sourcehostname.value"
+                      [class.ue-input-blurred]="signupForm.controls.sourcehostname.touched && signupForm.controls.sourcehostname.errors && !signupForm.controls.sourcehostname.valid">
+                      <input class="form-control" name="first name" type="text" formControlName="sourcehostname"
+                          (focus)="onFocus('sourcehostname')"(blur)="onBlur('sourcehostname')" tabindex="1">
+                      <span class="ue-placeholder">Host Name</span>
+                      <span class="ue-bottom-border"></span>
+                      <div class="field-error">google.com
+                      </div>
+                  </div>
+                  <div class="ue-input-container ue-input-err-on-touched  ue-input-invalid"
+                      [class.ue-input-container-focus]="isFocused('sourceport') || signupForm.controls.sourceport.value"
+                      [class.ue-input-container-placeholder]="!isFocused('sourceport') && !signupForm.controls.sourceport.value"
+                      [class.ue-input-blurred]="signupForm.controls.sourceport.touched && signupForm.controls.sourceport.errors && !signupForm.controls.sourceport.valid">
+                      <input class="form-control" name="first name" type="text" formControlName="sourceport"
+                          (focus)="onFocus('sourceport')"(blur)="onBlur('sourceport')" tabindex="1">
+                      <span class="ue-placeholder">Port</span>
+                      <span class="ue-bottom-border"></span>
+                      <div class="field-error">Digits 0-9 Only
+                      </div>
+                  </div>
+
+                  <div style="padding: 10px;">
+                    <label id="ue-checkbox-label" for="ue-checkbox">SSL </label>
+                    <input name="sourcessl" type="checkbox" id="ue-checkbox"tabindex="1"formControlName="sourcessl"/>                    
+                  </div>
+                  
+                  <div>                    
+                    <div  style="padding: 10px;">
+                    <label style="padding-right:10px ;" for="sourcecrt">Select CRT/PFX File</label>
+                    <input name="Source Certificate" type="file" formControlName="sourcecrt" id="sourcecrt"
+                        (focus)="onFocus('sourcecrt')"(blur)="onBlur('sourcecrt')" tabindex="1">                       
+                    </div>
+
+                    
+                    <div  style="padding: 10px;">
+                    <label style="padding-right:36px;" for="sourcekey">Select KEY File</label>
+                    <input name="Source KEY file" type="file" formControlName="sourcekey" id="sourcekey"
+                        (focus)="onFocus('sourcekey')"(blur)="onBlur('sourcekey')" tabindex="1">                    
+                    </div>
+                    <div class="ue-input-container ue-input-err-on-touched  ue-input-invalid"
+                        [class.ue-input-container-focus]="isFocused('sourcepassword') || signupForm.controls.sourcepassword.value"
+                        [class.ue-input-container-placeholder]="!isFocused('sourcepassword') && !signupForm.controls.sourcepassword.value"
+                        [class.ue-input-blurred]="signupForm.controls.sourcepassword.touched && signupForm.controls.sourcepassword.errors && !signupForm.controls.sourcepassword.valid">
+                        <input id="password-input-source-pass" class="form-control" name="sourcepassword" [type]="sourcepasswordthing" formControlName="sourcepassword"
+                            autocomplete="false" (focus)="onFocus('sourcepassword')" (blur)="onBlur('sourcepassword')">
+                        <span class="ue-placeholder">Passphrase</span>
+                        <span class="ue-bottom-border"></span>
+                        <i id="ue-password-visibility-icon" [class.ue-eye-closed]="isEyeClosedSourcePassword" (click)="visIconClickedSourcePassword()"></i>
+                    </div>
+                  </div>                  
+                  <button pButton pRipple type="button" label="Test Source Connection"></button>
+
+                  
+    
+            </div>
+            <div class="island-content" style="flex: 1;margin-left: 5px;margin-right: 5px;">
+                <div class="island-title">
+                    <h3>Target Details</h3>
                 </div>
-
-                <div class="ue-input-container ue-input-err-on-touched first ue-input-invalid"
-                    [class.ue-input-container-focus]="isFocused('cnfpassword') || signupForm.controls.cnfpassword.value"
-                    [class.ue-input-container-placeholder]="!isFocused('cnfpassword') && !signupForm.controls.cnfpassword.value"
-                    [class.ue-input-blurred]="signupForm.controls.cnfpassword.touched && signupForm.controls.cnfpassword.errors && !signupForm.controls.cnfpassword.valid">
-                    <input id="password-input-cnf" class="form-control" name="cnfpassword" [type]="cnfPasswordthing" formControlName="cnfpassword"
-                        autocomplete="false" (focus)="onFocus('cnfpassword')" (blur)="onBlur('cnfpassword')">
-                    <span class="ue-placeholder">Confirm Password</span>
-                    <span class="ue-bottom-border"></span>
-                    <i id="ue-password-visibility-icon" [class.ue-eye-closed]="isEyeClosedCnf" (click)="visIconClickedCnf()"></i>
+                <div class="ue-input-container ue-input-err-on-touched  ue-input-invalid"
+                [class.ue-input-container-focus]="isFocused('targetorg') || signupForm.controls.targetorg.value"
+                [class.ue-input-container-placeholder]="!isFocused('targetorg') && !signupForm.controls.targetorg.value"
+                [class.ue-input-blurred]="signupForm.controls.targetorg.touched && signupForm.controls.targetorg.errors && !signupForm.controls.targetorg.valid">
+                <input class="form-control" name="Target Organization" type="text" formControlName="targetorg"
+                     (focus)="onFocus('targetorg')"
+                    (blur)="onBlur('targetorg')" tabindex="1">
+                <span class="ue-placeholder">Organization</span>
+                <span class="ue-bottom-border"></span>
+                <div class="field-error">Letters A-Z, digits 0-9, space, hyphen - and apostrophe ' only
                 </div>
-
-                <button type="submit" class="island-button"
-                [disabled]="!signupForm.valid" id="login-button">Create Account
-                </button>
-
-                <div class="ue-link-section">
-                    <span>
-                        Already User? <a routerLink="/login" title="Our newer platform">Sign in</a>.
-                    </span>
-                    <br>
-                    <a href="#">Reset password</a>
+            </div>
+            <div class="ue-input-container ue-input-err-on-touched  ue-input-invalid"
+                [class.ue-input-container-focus]="isFocused('targetenv') || signupForm.controls.targetenv.value"
+                [class.ue-input-container-placeholder]="!isFocused('targetenv') && !signupForm.controls.targetenv.value"
+                [class.ue-input-blurred]="signupForm.controls.targetenv.touched && signupForm.controls.targetenv.errors && !signupForm.controls.targetenv.valid">
+                <input class="form-control" name="Target Environment" type="text" formControlName="targetenv"
+                    (focus)="onFocus('targetenv')"(blur)="onBlur('targetenv')" tabindex="1">
+                <span class="ue-placeholder">Environment</span>
+                <span class="ue-bottom-border"></span>
+                <div class="field-error">Letters A-Z, digits 0-9, space, hyphen - and apostrophe ' only
                 </div>
+            </div>
+            <div class="ue-input-container  ue-input-err-on-touched  ue-input-invalid"
+            [class.ue-input-container-focus]="isFocused('targetprotocol') || signupForm.controls.targetprotocol.value"
+                [class.ue-input-container-placeholder]="!isFocused('targetprotocol') && !signupForm.controls.targetprotocol.value"
+                [class.ue-input-blurred]="signupForm.controls.targetprotocol.touched && signupForm.controls.targetprotocol.errors && !signupForm.controls.targetprotocol.valid">
+                <select name="Target Protocol" class="form-control" tabIndex="1" formControlName="targetprotocol">
+                  <option hidden="true"></option>
+                  <option value="1">http</option>
+                  <option value="2-9">https</option>                          
+                </select>
+                <span class="ue-placeholder">Select Protocol</span>
+                <span class="ue-bottom-border"></span>
+              </div>
+              <div class="ue-input-container ue-input-err-on-touched  ue-input-invalid"
+              [class.ue-input-container-focus]="isFocused('targethostname') || signupForm.controls.targethostname.value"
+              [class.ue-input-container-placeholder]="!isFocused('targethostname') && !signupForm.controls.targethostname.value"
+              [class.ue-input-blurred]="signupForm.controls.targethostname.touched && signupForm.controls.targethostname.errors && !signupForm.controls.targethostname.valid">
+              <input class="form-control" name="Target Host Name" type="text" formControlName="targethostname"
+                  (focus)="onFocus('targethostname')"(blur)="onBlur('targethostname')" tabindex="1">
+              <span class="ue-placeholder">Host Name</span>
+              <span class="ue-bottom-border"></span>
+              <div class="field-error">google.com
+              </div>
+          </div>
+          <div class="ue-input-container ue-input-err-on-touched  ue-input-invalid"
+              [class.ue-input-container-focus]="isFocused('targetport') || signupForm.controls.targetport.value"
+              [class.ue-input-container-placeholder]="!isFocused('targetport') && !signupForm.controls.targetport.value"
+              [class.ue-input-blurred]="signupForm.controls.targetport.touched && signupForm.controls.targetport.errors && !signupForm.controls.targetport.valid">
+              <input class="form-control" name="Target Port" type="text" formControlName="targetport"
+                  (focus)="onFocus('targetport')"(blur)="onBlur('targetport')" tabindex="1">
+              <span class="ue-placeholder">Port</span>
+              <span class="ue-bottom-border"></span>
+              <div class="field-error">Digits 0-9 Only
+              </div>
+          </div>
 
-            </form>
+          <div style="padding: 10px;">
+            <label id="ue-checkbox-label" for="ue-checkbox">SSL </label>
+            <input name="sourcessl" type="checkbox" id="ue-checkbox"tabindex="1"formControlName="targetssl"/>                    
+          </div>
+          
+          <div>                    
+            <div  style="padding: 10px;">
+            <label style="padding-right:10px ;" for="targetcrt">Select CRT/PFX File</label>
+            <input name="Source Certificate" type="file" formControlName="targetcrt" id="targetcrt" tabindex="1">                       
+            </div>
 
-
-
+            
+            <div  style="padding: 10px;">
+                <label style="padding-right:36px;" for="targetkey">Select KEY File</label>
+            <input name="Source KEY file" type="file" formControlName="targetkey" id="targetkey" tabindex="1">                    
+            </div>
+            <div class="ue-input-container ue-input-err-on-touched  ue-input-invalid"
+                [class.ue-input-container-focus]="isFocused('targetpassword') || signupForm.controls.targetpassword.value"
+                [class.ue-input-container-placeholder]="!isFocused('targetpassword') && !signupForm.controls.targetpassword.value"
+                [class.ue-input-blurred]="signupForm.controls.targetpassword.touched && signupForm.controls.targetpassword.errors && !signupForm.controls.targetpassword.valid">
+                <input id="password-input-target-pass" class="form-control" name="targetpassword" [type]="targetpasswordthing" formControlName="targetpassword"
+                    autocomplete="false" (focus)="onFocus('targetpassword')" (blur)="onBlur('targetpassword')">
+                <span class="ue-placeholder">Passphrase</span>
+                <span class="ue-bottom-border"></span>
+                <i id="ue-password-visibility-icon" [class.ue-eye-closed]="isEyeClosedTargetPassword" (click)="visIconClickedTargetPassword()"></i>
+            </div>
+          </div>                  
+          <button pButton pRipple label="Test Target Connection" [disabled]="!signupForm.valid"></button>          
+          <button pButton pRipple label="Create Account" [disabled]="!signupForm.valid"></button>
+    
+                    <div class="ue-link-section">
+                        <span>
+                            Already User? <a routerLink="/login" title="Our newer platform">Sign in</a>.
+                        </span>
+                        <br>
+                        <a href="#">Reset password</a>
+                    </div>    
+            </div>
+        
         </div>
-
+    </form>
     </div>
 </div>
